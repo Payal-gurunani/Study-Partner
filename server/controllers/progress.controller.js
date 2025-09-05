@@ -1,9 +1,8 @@
 import { asyncHandler } from "../utils/asyncHandler.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
-import { QuizResult } from "../models/quizResult.model.js";  
-import { StudySchedule } from "../models/studySchedule.model.js";
-import { FlashcardReview } from "../models/flashcardReview.model.js";
-
+import { QuizResult } from "../model/quizresult.model.js";
+import {FlashcardReview} from "../model/flashcardReview.model.js"
+import {StudySchedule} from "../model/studyschedule.model.js"
 export const getUserProgress = asyncHandler(async (req, res) => {
   const userId = req.user._id;
 

@@ -17,3 +17,5 @@ const quizResultSchema = new mongoose.Schema({
 });
 
 export const QuizResult = mongoose.model("QuizResult", quizResultSchema);
+
+

@@ -1,6 +1,5 @@
 import jwt from "jsonwebtoken";
-import { Session } from "../models/Session.model.js";
-
+import {Session} from "../model/session.model.js"
 export const isAuthenticated = async (req, res, next) => {
   try {
     const token =

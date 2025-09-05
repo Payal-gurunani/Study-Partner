@@ -1,9 +1,9 @@
-import { Note } from "../models/note.model.js";
+import { Note } from "../model/note.model.js";
 import { ApiError } from "../utils/ApiError.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
 import OpenAI from "openai";
-import { Flashcard } from "../models/flashcard.model.js";
+import { Flashcard } from "../model/flashcard.model.js";
 
 const openai = new OpenAI({
   apiKey: process.env.OPENROUTER_API_KEY,

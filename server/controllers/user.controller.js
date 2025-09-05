@@ -1,9 +1,9 @@
 import { ApiError } from "../utils/ApiError.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
-import { User } from "../models/user.model.js";
+import {User} from "../model/user.model.js"
 import { generateToken } from "../utils/genratetoken.js";
-import { Session } from "../models/Session.model.js";
+import {Session} from "../model/session.model.js"
 
 const Register = asyncHandler(async(req,res)=>{
 const {username , email, password} = req.body;

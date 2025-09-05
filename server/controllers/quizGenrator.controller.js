@@ -2,9 +2,8 @@ import OpenAI from "openai";
 import {asyncHandler} from "../utils/asyncHandler.js";
 import {ApiResponse} from "../utils/ApiResponse.js";
 import {ApiError} from "../utils/ApiError.js";
-import { Note } from "../models/note.model.js";
-import { QuizResult } from "../models/quizResult.model.js";
-
+import {QuizResult} from "../model/quizresult.model.js"
+import {Note} from "../model/note.model.js"
 const openai = new OpenAI({
   apiKey: process.env.OPENROUTER_API_KEY, 
   baseURL: "https://openrouter.ai/api/v1",

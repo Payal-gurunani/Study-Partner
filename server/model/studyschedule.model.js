@@ -26,3 +26,5 @@ const studyScheduleSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 export const StudySchedule = mongoose.model("StudySchedule", studyScheduleSchema);
+
+
