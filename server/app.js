@@ -11,7 +11,8 @@ import cors from 'cors';
 const app = express();
 app.use(
   cors({
-    origin: process.env.CLIENT_URL, 
+    
+    origin: process.env.CLIENT_URL||"http://localhost:3005",
     credentials: true,  
   })
 )
@@ -19,9 +20,6 @@ app.use(cookieParser());
 app.use(express.json());
 
 
-app.get('/', (req, res) => {
-  res.send('Welcome to the API');
-});
 
 app.use('/api/v1/users',userRoutes)
 app.use('/api/v1/notes', noteRoutes);

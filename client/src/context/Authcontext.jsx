@@ -20,7 +20,11 @@ export const AuthProvider = ({ children }) => {
 
     (async () => {
       try {
-        const res = await axiosInstance(endpoints.checkLogin);
+        const res = await axiosInstance({
+          method: endpoints.checkLogin.method,
+          url: endpoints.checkLogin.url,
+        });
+        
         if (res.data.success) {
           setIsAuthenticated(true);
           setUser(res.data.data.user);

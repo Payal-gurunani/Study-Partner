@@ -54,17 +54,20 @@ const loginUser = asyncHandler(async (req, res) => {
 
   await Session.create({ userId: user._id, token });
 
-  res.cookie("token", token, {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "Lax",
-    maxAge: 7 * 24 * 60 * 60 * 1000,
-  });
+
+res.cookie("token", token, {
+  httpOnly: true,
+  secure: process.env.NODE_ENV === "production", // true in prod
+  sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax",
+  maxAge: 7 * 24 * 60 * 60 * 1000,
+});
+
+
 
   res.status(200).json({
     success: true,
     message: "Login successful",
-    data: { user },
+    user,
   });
 });
 
@@ -76,12 +79,14 @@ const logoutUser = asyncHandler(async (req, res) => {
   if (token) {
     await Session.deleteOne({ token });
   }
+const isProduction = process.env.NODE_ENV === "production";
 
-  res.clearCookie("token", {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "strict",
-  });
+res.clearCookie("token", {
+  httpOnly: true,
+  secure: isProduction,
+  sameSite: isProduction ? "None" : "Lax",
+});
+
 
   return res.status(200).json(new ApiResponse(200, {}, "Logged out"));
 });

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useAuth } from "../context/Authcontext";
-import { setAuthToken } from "../api/axiosInstance"; 
+// import { setAuthToken } from "../api/axiosInstance"; 
 import { apiRequest } from "../api/apiRequest";
 import { endpoints } from "../api/endPoints";
 import { toast } from "react-toastify";
@@ -55,7 +55,9 @@ const [loginError, setLoginError] = useState("");
       data: formData,
     });
 
-    setAuthToken(res.token);
+console.log(res , "response after login");
+
+    //setAuthToken(res);
     setUser(res.user || res.data.user);
     setIsAuthenticated(true);
     toast.success("Login successful! Welcome back!");
